@@ -38,21 +38,21 @@ class JFQuestionDetailViewController: UIViewController {
     }
     
     func twoNumberSum() -> [Int] {
-        let nums:[Int] = [2, 7, 11, 15]
-        let target = 13
-        var sumIndexArray:[Int] = []
-        for item in nums {
-            let c =  target - item
-            for item2 in nums{
-                if c ==  item2 {
-                    let index = nums.firstIndex(of: item)!
-                    let index2 = nums.firstIndex(of: c)!
-                    sumIndexArray = [index , index2]
-                    return sumIndexArray
+        let nums:[Int] = [3,3]
+        let target = 6
+        
+        for i in 0..<nums.count{//第一次遍历数组 拿到第一个值
+        
+            for j in i+1..<nums.count{ //第二次遍历数组 从第二个元素开始 拿到第二个后面的值
+                
+                if i != j {
+                    if nums[i] + nums[j] == target { //如果相加的值相等 那么 就是i ，j就是所需要的 下标
+                        return [i,j]
+                    }
                 }
             }
         }
-        return sumIndexArray
+        return []
     }
     
 }
